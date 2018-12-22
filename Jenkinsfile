@@ -13,8 +13,8 @@ pipeline {
             )}"""
             
             
-        AWS_ACCESS_KEY_ID     = credentials('oming')
-        AWS_SECRET_ACCESS_KEY = 'oming'
+        AAWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = 'jenkins-aws-secret-access-key'
     }
     stages {
         stage('Example') {
