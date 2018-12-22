@@ -11,6 +11,10 @@ pipeline {
                 returnStatus: true,
                 script: 'exit 1'
             )}"""
+            
+            
+        AWS_ACCESS_KEY_ID     = credentials('oming')
+        AWS_SECRET_ACCESS_KEY = 'oming'
     }
     stages {
         stage('Example') {
@@ -19,6 +23,8 @@ pipeline {
             }
             steps {
                 sh 'printenv'
+                echo ${AWS_ACCESS_KEY_ID}
+                echo ${AWS_SECRET_ACCESS_KEY}
             }
         }
     }
