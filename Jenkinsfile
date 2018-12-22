@@ -31,14 +31,13 @@ pipeline {
     }
 }
 **/
-/**
 pipeline {
     agent any
     options { 
         timestamps() 
             }
     triggers{ 
-        cron('*/2 * * * *')
+        cron('H */2 * * *')
             }
     stages {
         stage('Example') {
@@ -56,11 +55,8 @@ pipeline {
             echo 'I will always say Hello again!'
         }
     }
-}
-**/
-pipeline {
-    agent { docker 'maven:3-alpine' } 
     stages {
+        agent { docker 'maven:3-alpine' } 
         stage('Example Build') {
             steps {
                 sh 'mvn -B clean verify'
