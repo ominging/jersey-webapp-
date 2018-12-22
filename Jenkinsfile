@@ -40,7 +40,7 @@ pipeline {
         AN_ACCESS_KEY = credentials('my-prefined-secret-text')
          }
     triggers{ 
-        pollSCM('H/2 * * * *') 
+        pollSCM('*/2 * * * *') 
             }
     stages {
         stage('Example') {
