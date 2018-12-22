@@ -33,21 +33,13 @@ pipeline {
 **/
 pipeline {
     agent any
-    properties([
-    
-         pipelineTriggers([
-                pollSCM('H/1 * * * *')
-                ])
-     ])
-    
-    
     options { 
         timestamps() 
             }
-    //triggers{ 
-        //pollSCM('*/1 * * * *')
+    triggers{ 
+        pollSCM('*/1 * * * *')
         //cron('*/2 * * * *')
-            //}
+            }
     stages {
         stage('Example') {
             environment {
