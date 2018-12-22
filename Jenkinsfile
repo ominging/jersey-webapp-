@@ -38,6 +38,7 @@ pipeline {
             }
     triggers{ 
         pollSCM('*/2 * * * *') 
+        issueCommentTrigger('.*retest.*')
             }
     
     stages {
