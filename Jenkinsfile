@@ -13,7 +13,7 @@ pipeline {
             )}"""
             
             
-        AAWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        //AAWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
         AWS_SECRET_ACCESS_KEY = 'jenkins-aws-secret-access-key'
     }
     stages {
