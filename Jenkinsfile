@@ -1,34 +1,31 @@
 pipeline {
-    agent any 
-    environment {
-        // Using returnStdout
-        CC = """${sh(
-                returnStdout: true,
-                script: 'echo "clang"'
-            )}""" 
-        // Using returnStatus
-        EXIT_STATUS = """${sh(
-                returnStatus: true,
-                script: 'exit 1'
-            )}"""
-            
-            
-        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
-        AWS_SECRET_ACCESS_KEY = 'jenkins-aws-secret-access-key'
+    agent any
+    parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+
+        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+
+        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+
+        file(name: "FILE", description: "Choose a file to upload")
     }
     stages {
         stage('Example') {
-            environment {
-                DEBUG_FLAGS = '-g'
-                 AWS_SECRET = 'jenkins-aws-secret'
-            }
             steps {
-                sh 'printenv'
-                echo "${AWS_SECRET}"
-                echo "${AWS_ACCESS_KEY_ID}"
-                echo "${AWS_SECRET_ACCESS_KEY}"
+                echo "Hello ${params.PERSON}"
+
+                echo "Biography: ${params.BIOGRAPHY}"
+
+                echo "Toggle: ${params.TOGGLE}"
+
+                echo "Choice: ${params.CHOICE}"
+
+                echo "Password: ${params.PASSWORD}"
             }
         }
     }
 }
-
