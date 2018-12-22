@@ -20,10 +20,11 @@ pipeline {
         stage('Example') {
             environment {
                 DEBUG_FLAGS = '-g'
+                 AWS_SECRET = 'jenkins-aws-secret'
             }
             steps {
                 sh 'printenv'
-           
+                echo $AWS_SECRET
                 echo $AWS_SECRET_ACCESS_KEY
             }
         }
