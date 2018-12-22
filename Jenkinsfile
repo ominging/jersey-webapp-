@@ -1,3 +1,4 @@
+/**
 pipeline {
     agent any
     parameters {
@@ -25,6 +26,20 @@ pipeline {
                 echo "Choice: ${params.CHOICE}"
 
                 echo "Password: ${params.PASSWORD}"
+            }
+        }
+    }
+}
+**/
+pipeline {
+    agent any
+    triggers {
+        cron('H */4 * * 1-5')
+    }
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
             }
         }
     }
