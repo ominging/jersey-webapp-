@@ -33,9 +33,9 @@ pipeline {
 **/
 pipeline {
     agent any
-    triggers {
-        cron('H */1 * * 1-5')
-    }
+    triggers{ 
+        cron('H(0-29)/2 * * * *') 
+            }
     stages {
         stage('Example') {
             steps {
