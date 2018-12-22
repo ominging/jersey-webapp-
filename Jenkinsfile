@@ -42,6 +42,7 @@ pipeline {
     triggers{ 
         pollSCM('*/2 * * * *') 
             }
+    
     stages {
         stage('Example') {
             steps {
