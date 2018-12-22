@@ -50,7 +50,7 @@ pipeline {
         
         stage('Example') {
             environment {
-                AN_ACCESS_KEY = credentials('my-prefined-secret-text')
+                AN_ACCESS_KEY = credentials('${my-prefined-secret-text}')
             }
             steps {
                 sh 'printenv'
