@@ -48,12 +48,6 @@ pipeline {
                 echo 'Hello World'
                 echo "Hello World ${AN_ACCESS_KEY}"
             }
-          stage('Example Build') {
-             agent { docker 'maven:3-alpine' } 
-            steps {
-                sh 'mvn -B clean verify'
-            }
-    }
         }
     }
     post {
