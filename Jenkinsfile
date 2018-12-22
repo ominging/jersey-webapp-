@@ -13,7 +13,7 @@ pipeline {
             )}"""
             
             
-        //AAWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
         AWS_SECRET_ACCESS_KEY = 'jenkins-aws-secret-access-key'
     }
     stages {
@@ -25,6 +25,7 @@ pipeline {
             steps {
                 sh 'printenv'
                 echo "${AWS_SECRET}"
+                echo "${AWS_ACCESS_KEY_ID}"
                 echo "${AWS_SECRET_ACCESS_KEY}"
             }
         }
