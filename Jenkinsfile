@@ -34,7 +34,9 @@ pipeline {
 pipeline {
 
     agent any
-
+    environment {
+        CC = 'clang'
+    }
     triggers {
         pollSCM('*/2 * * * *')
     }
@@ -45,6 +47,15 @@ pipeline {
                 sh "echo foo"
             }
         }
+        
+        stage('Example') {
+            environment {
+                AN_ACCESS_KEY = credentials('my-prefined-secret-text')
+            }
+            steps {
+                sh 'printenv'
+            }
+        }
     }
     post {
         always {
@@ -53,3 +64,4 @@ pipeline {
     }
 
 }
+
