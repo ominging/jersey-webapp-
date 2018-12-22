@@ -44,6 +44,14 @@ pipeline {
                 echo "Hello World ${AN_ACCESS_KEY}"
             }
         }
+        stage('credentials') {
+            environment { 
+                AN_ACCESS_KEY = credentials('my-prefined-secret-text') 
+            }
+            steps {
+                sh 'printenv'
+            }
+        }
     }
     post {
         always {
