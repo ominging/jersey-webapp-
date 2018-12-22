@@ -33,9 +33,7 @@ pipeline {
 **/
 pipeline {
 
-    agent {
-        label 'master'
-    }
+    agent any
 
     triggers {
         cron('* * * * *')
