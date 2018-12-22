@@ -32,16 +32,19 @@ pipeline {
 }
 **/
 pipeline {
-    agent any
-   triggers{ cron('H/1 * * * *') }
+
+    agent {
+        label 'master'
+    }
+
+    triggers {
+        cron('* * * * *')
+    }
+
     stages {
-        stage('Example') {
-            environment {
-                AN_ACCESS_KEY = 'my-prefined-secret-text'
-            }
+        stage('main') {
             steps {
-                echo 'Hello World'
-                echo "Hello World ${AN_ACCESS_KEY}"
+                sh "echo foo"
             }
         }
     }
