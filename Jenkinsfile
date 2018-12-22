@@ -36,9 +36,6 @@ pipeline {
     options { 
         timestamps() 
             }
-    environment {
-        AN_ACCESS_KEY = credentials('my-prefined-secret-text')
-         }
     triggers{ 
         pollSCM('*/2 * * * *') 
             }
