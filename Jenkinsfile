@@ -33,6 +33,9 @@ pipeline {
 **/
 pipeline {
     agent any
+    environment {
+        AN_ACCESS_KEY = credentials('my-prefined-secret-text')
+         }
     triggers{ 
         cron('H(0-29)/2 * * * *') 
             }
@@ -40,7 +43,13 @@ pipeline {
         stage('Example') {
             steps {
                 echo 'Hello World'
+                sh 'printenv'
             }
+        }
+    }
+    post {
+        always {
+            echo 'I will always say Hello again!'
         }
     }
 }
