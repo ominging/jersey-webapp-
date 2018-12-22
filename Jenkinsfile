@@ -31,6 +31,7 @@ pipeline {
     }
 }
 **/
+/**
 pipeline {
     agent any
     options { 
@@ -38,7 +39,7 @@ pipeline {
             }
     triggers{ 
         pollSCM('*/1 * * * *')
-        //cron('*/2 * * * *')
+        cron('*/2 * * * *')
             }
     stages {
         stage('Example') {
@@ -54,6 +55,17 @@ pipeline {
     post {
         always {
             echo 'I will always say Hello again!'
+        }
+    }
+}
+**/
+pipeline {
+    agent { docker 'maven:3-alpine' } 
+    stages {
+        stage('Example Build') {
+            steps {
+                sh 'mvn -B clean verify'
+            }
         }
     }
 }
