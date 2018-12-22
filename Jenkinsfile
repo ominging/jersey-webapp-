@@ -38,7 +38,6 @@ pipeline {
         timestamps() 
             }
     triggers{ 
-        pollSCM('*/1 * * * *')
         cron('*/2 * * * *')
             }
     stages {
