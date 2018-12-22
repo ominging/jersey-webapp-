@@ -33,9 +33,7 @@ pipeline {
 **/
 pipeline {
     agent any
-    triggers{ 
-        cron('H */2 * * *')
-            }
+   properties([pipelineTriggers([cron('H/2 * * * *')])])
     stages {
         stage('Example') {
             environment {
