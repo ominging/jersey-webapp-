@@ -24,8 +24,8 @@ pipeline {
             }
             steps {
                 sh 'printenv'
-                echo $AWS_SECRET
-                echo $AWS_SECRET_ACCESS_KEY
+                echo "${AWS_SECRET}"
+                echo "${AWS_SECRET_ACCESS_KEY}"
             }
         }
     }
