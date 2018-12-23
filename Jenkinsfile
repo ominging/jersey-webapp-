@@ -73,12 +73,11 @@ pipeline {
 
 @Library('pilipa-library') _
 import org.foo.Zot
-@Library('pilipa-library') import org.foo.Utilities
-def utils = new Utilities(this)
+@Library('pilipa-library') import static org.foo.Utilities.*
+
 node{
     
     z = new Zot()
     z.checkOutFrom('test')
     
-    utils.mvn 'clean package'
-}
+    mvn 'clean package'
