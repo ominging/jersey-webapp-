@@ -73,12 +73,23 @@ pipeline {
 
 @Library('pilipa-library') _
 import org.foo.Zot
-@Library('pilipa-library') import org.foo.Build.Utilities 
-def utils = new Utilities(this)
+/**
 node{
     
     z = new Zot()
     z.checkOutFrom('test')
-    
-   utils.mvn 'clean package'
+}
+**/
+pipeline {
+    agent none
+    stage ('Example') {
+        steps {
+             script { 
+                 log.info 'Starting'
+                 log.warning 'Nothing to do!'
+                 z = new Zot()
+                 z.checkOutFrom('test')
+             }
+        }
+    }
 }
