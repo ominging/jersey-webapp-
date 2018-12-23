@@ -78,9 +78,12 @@ pipeline {
     
     stages {
         stage('main') {
+            environment {
+               def z = new org.foo.Zot()
+            }
             steps {
                 sh "echo foo"
-                 def z = new org.foo.Zot()
+                 
                  z.checkOutFrom(repo)
             }
         }
