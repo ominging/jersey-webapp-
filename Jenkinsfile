@@ -33,7 +33,6 @@ pipeline {
 **/
 
 @Libarary('pilipa-library')
-import com.sap.icd.jenkins.Utils
 pipeline {
 
     agent any
@@ -48,6 +47,7 @@ pipeline {
         stage('main') {
             steps {
                 sh "echo foo"
+                buildProject()
             }
         }
         
