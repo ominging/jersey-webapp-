@@ -71,8 +71,10 @@ pipeline {
 }
 **/
 
-@Library('pilipa-library') import org.foo.Utilities
-def utils = new Utilities(this)
+@Library('pilipa-library') 
+//import org.foo.Utilities
+//def utils = new Utilities(this)
 node {
-  utils.mvn 'clean package'
+  def z = new org.foo.Zot()
+  z.checkOutFrom(repo)
 }
