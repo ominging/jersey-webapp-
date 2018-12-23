@@ -76,11 +76,12 @@ pipeline {
 //def utils = new Utilities(this)
 pipeline {
     agent any
+    environment {
+         z = new org.foo.Zot()
+    }
     stages {
         stage('main') {
-            environment {
-                z = new org.foo.Zot()
-            }
+    
             steps {
                 sh "echo foo"
                  
