@@ -73,23 +73,13 @@ pipeline {
 
 @Library('pilipa-library') _
 import org.foo.Zot
-/**
+
+evenOrOdd(currentBuild.getNumber())
 node{
     
     z = new Zot()
     z.checkOutFrom('test')
+    log.info 'Starting'
+    log.warning 'Nothing to do!'
 }
-**/
-pipeline {
-    agent none
-    stage ('Example') {
-        steps {
-             script { 
-                 log.info 'Starting'
-                 log.warning 'Nothing to do!'
-                 z = new Zot()
-                 z.checkOutFrom('test')
-             }
-        }
-    }
-}
+
