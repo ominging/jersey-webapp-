@@ -75,7 +75,7 @@ pipeline {
 //import org.foo.Utilities
 //def utils = new Utilities(this)
 pipeline {
-    
+    agent any
     stages {
         stage('main') {
             environment {
