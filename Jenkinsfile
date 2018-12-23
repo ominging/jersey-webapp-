@@ -83,7 +83,12 @@ node{
     log.warning 'Nothing to do!'
 }
 **/
-stages {
+
+pipeline {
+
+    agent any
+
+    stages {
 
         stage('Example Build') {
 
@@ -101,7 +106,7 @@ stages {
 
                 allOf {
 
-                    branch 'master'
+                    branch 'production'
 
                     environment name: 'DEPLOY_TO', value: 'production'
 
@@ -119,3 +124,4 @@ stages {
 
     }
 
+}
