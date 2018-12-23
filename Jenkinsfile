@@ -94,7 +94,7 @@ pipeline {
         }
         stage('Example Deploy') {
             when {
-               allOf {
+               not {
                     branch 'master'
                 }
             }
