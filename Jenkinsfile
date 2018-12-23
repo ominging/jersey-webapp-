@@ -104,14 +104,17 @@ pipeline {
 
             when {
 
-                anyOf {
+               // anyOf {
 
-                    branch 'master'
+                   // branch 'master'
 
-                    environment name: 'DEPLOY_TO', value: 'production'
+                   // environment name: 'DEPLOY_TO', value: 'production'
 
-                }
+                //}
 
+                expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
             }
 
             steps {
