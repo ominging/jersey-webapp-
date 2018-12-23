@@ -74,7 +74,7 @@ pipeline {
 @Library('pilipa-library') 
 //import org.foo.Utilities
 //def utils = new Utilities(this)
-node {
+pipeline {
   def z = new org.foo.Zot()
   z.checkOutFrom(repo)
 }
