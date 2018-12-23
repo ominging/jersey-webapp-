@@ -106,7 +106,7 @@ pipeline {
 
                 allOf {
 
-                    branch 'production'
+                    branch 'master'
 
                     environment name: 'DEPLOY_TO', value: 'production'
 
