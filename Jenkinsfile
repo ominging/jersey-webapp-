@@ -75,17 +75,8 @@ pipeline {
 //import org.foo.Utilities
 //def utils = new Utilities(this)
 z = new org.foo.Zot()
-pipeline {
-    agent any
-    stages {
-        stage('main') {
-    
-            steps {
-                sh "echo foo"
-                 
-                 z.checkOutFrom(repo)
-            }
-        }
+node{
+     stage('main') {
+        z.checkOutFrom(repo)
     }
- 
 }
