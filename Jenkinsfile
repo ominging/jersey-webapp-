@@ -31,7 +31,7 @@ pipeline {
     }
 }
 **/
-
+/**
 @Library('pilipa-library') _
 import org.foo.Utilities
 def utils = new Utilities(this)
@@ -42,7 +42,6 @@ pipeline {
         CC = 'clang'
     }
     triggers {
-        pollSCM('*/2 * * * *')
     }
 
     stages {
@@ -70,4 +69,10 @@ pipeline {
     }
 
 }
+**/
 
+@Library('pilipa-library') import org.foo.Utilities
+def utils = new Utilities(this)
+node {
+  utils.mvn 'clean package'
+}
