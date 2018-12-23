@@ -85,46 +85,22 @@ node{
 **/
 
 pipeline {
-
     agent any
-
     stages {
-
         stage('Example Build') {
-
             steps {
-
                 echo 'Hello World'
-
             }
-
         }
-
         stage('Example Deploy') {
-
             when {
-
-               // anyOf {
-
-                   // branch 'master'
-
-                   // environment name: 'DEPLOY_TO', value: 'production'
-
-                //}
-
-                expression {
-                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
-              }
+               allOf {
+                    branch 'master'
+                }
             }
-
             steps {
-
                 echo 'Deploying'
-
             }
-
         }
-
     }
-
 }
