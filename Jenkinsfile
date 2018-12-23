@@ -73,8 +73,8 @@ pipeline {
 
 @Library('pilipa-library') _
 import org.foo.Zot
-@Library('pilipa-library') import org.foo.Build
-def utils = new Build (this)
+@Library('pilipa-library') import org.foo.Build.Utilities 
+def utils = new Utilities(this)
 node{
     
     z = new Zot()
