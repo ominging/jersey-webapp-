@@ -104,7 +104,7 @@ pipeline {
 
             when {
 
-                allOf {
+                anyOf {
 
                     branch 'master'
 
