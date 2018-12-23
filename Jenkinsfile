@@ -32,7 +32,7 @@ pipeline {
 }
 **/
 
-@Library('pilipa-library')
+@Library('pilipa-library') _
 pipeline {
 
     agent any
