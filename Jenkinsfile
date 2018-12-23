@@ -33,7 +33,7 @@ pipeline {
 **/
 
 @Library('pilipa-library') _
-import com.test.workLabrary
+import com.test.Build
 pipeline {
 
     agent any
@@ -49,7 +49,7 @@ pipeline {
             steps {
                 sh "echo foo"
                 buildProject()
-                test = workLabrary()
+                test = Build()
                 test.print('test work')
             }
         }
