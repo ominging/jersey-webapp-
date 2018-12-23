@@ -71,7 +71,7 @@ pipeline {
 }
 **/
 
-//@Library('pilipa-library') 
+@Library('pilipa-library') _
 //import org.foo.Utilities
 //def utils = new Utilities(this)
 pipeline {
