@@ -81,3 +81,4 @@ node{
     z.checkOutFrom('test')
     
     mvn 'clean package'
+}
