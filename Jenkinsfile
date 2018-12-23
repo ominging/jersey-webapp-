@@ -33,7 +33,8 @@ pipeline {
 **/
 
 @Library('pilipa-library') _
-import com.test.Build
+import org.foo.Utilities
+def utils = new Utilities(this)
 pipeline {
 
     agent any
@@ -49,8 +50,7 @@ pipeline {
             steps {
                 sh "echo foo"
                 buildProject()
-                test = Build()
-                test.print('test work')
+                utils.mvn 'clean package'
             }
         }
         
