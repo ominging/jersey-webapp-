@@ -70,7 +70,7 @@ pipeline {
 
 }
 **/
-
+/**
 @Library('pilipa-library') _
 import org.foo.Zot
 
@@ -82,4 +82,40 @@ node{
     log.info 'Starting'
     log.warning 'Nothing to do!'
 }
+**/
+stages {
+
+        stage('Example Build') {
+
+            steps {
+
+                echo 'Hello World'
+
+            }
+
+        }
+
+        stage('Example Deploy') {
+
+            when {
+
+                allOf {
+
+                    branch 'master'
+
+                    environment name: 'DEPLOY_TO', value: 'production'
+
+                }
+
+            }
+
+            steps {
+
+                echo 'Deploying'
+
+            }
+
+        }
+
+    }
 
