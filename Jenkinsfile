@@ -79,7 +79,7 @@ pipeline {
     stages {
         stage('main') {
             environment {
-               def z = new org.foo.Zot()
+                z = new org.foo.Zot()
             }
             steps {
                 sh "echo foo"
