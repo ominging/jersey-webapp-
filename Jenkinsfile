@@ -75,6 +75,15 @@ pipeline {
 //import org.foo.Utilities
 //def utils = new Utilities(this)
 pipeline {
-  def z = new org.foo.Zot()
-  z.checkOutFrom(repo)
+    
+    stages {
+        stage('main') {
+            steps {
+                sh "echo foo"
+                 def z = new org.foo.Zot()
+                 z.checkOutFrom(repo)
+            }
+        }
+    }
+ 
 }
