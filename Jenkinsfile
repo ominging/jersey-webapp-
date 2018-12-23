@@ -74,11 +74,9 @@ pipeline {
 @Library('pilipa-library') _
 //import org.foo.Utilities
 //def utils = new Utilities(this)
+z = new org.foo.Zot()
 pipeline {
     agent any
-    environment {
-         z = new org.foo.Zot()
-    }
     stages {
         stage('main') {
     
