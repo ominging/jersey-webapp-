@@ -76,6 +76,7 @@ import org.foo.Zot
 //def utils = new Utilities(this)
 
 node{
+    
     z = new Zot()
-    z.checkOutFrom(repo)
+    z.checkOutFrom('test')
 }
