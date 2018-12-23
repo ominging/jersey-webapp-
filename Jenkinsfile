@@ -72,9 +72,9 @@ pipeline {
 **/
 
 @Library('pilipa-library') _
-//import org.foo.Utilities
+import org.foo.Zot
 //def utils = new Utilities(this)
-z = new org.foo.Zot()
+z = new Zot()
 node{
      stage('main') {
         z.checkOutFrom(repo)
