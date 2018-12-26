@@ -70,7 +70,7 @@ pipeline {
 
 }
 **/
-/**
+
 @Library('pilipa-library') _
 import org.foo.Zot
 
@@ -82,8 +82,8 @@ node{
     log.info 'Starting'
     log.warning 'Nothing to do!'
 }
-**/
 
+/**
 pipeline {
     agent any
     stages {
@@ -104,3 +104,4 @@ pipeline {
         }
     }
 }
+**/
